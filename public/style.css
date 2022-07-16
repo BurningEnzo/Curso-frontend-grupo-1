@@ -1,20 +1,9 @@
-.main-header {
-    background-image: url("./img/main-header.jpg");
-    background-position: center;
-    background-size: cover;
-    position: absolute;
-    width: 2000%;
-
+html {
+  box-sizing: border-box;
 }
 
-.navbar {
-position: relative;
-margin-top: 30px;
-background-color: purple;
-width: 100%;
-display: block;
-}
-
-.navbar-button {
-    display: inline;
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }

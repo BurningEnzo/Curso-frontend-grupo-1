@@ -1,57 +1,27 @@
 #email_us {
-    display: block;
-    text-align: center;
-    justify-items: auto;
-    background-image: url('../img/map-image.png');
+
+    background-image: url("../img/map-image.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-color: #79629e;
-    height: 500px;
     color: white;
-    padding-top: 10px;
-}
-
-#email_us h2 {
-    font-weight: 400;
-    font-size: xx-large;
-}
-
-#email_us div {
-    margin-bottom: 10px;
+    padding-top: 2rem;
+  
 }
 
 #email_us label {
-    display: inline-block;
-    width: 100px;
     color: white;
-    text-align: left;
-}
-
-#email_us textarea {
-    width: 225px;
-    vertical-align: top;
-    border-radius: 3px;
-    border: none;
-    margin-bottom: 10px;
-    resize: vertical;
-    max-height: 130px;
-}
-
-#email_us input {
-    padding: 5px 10px;
-    border-radius: 3px;
-    border: none;
-    width: 210px;
-    height: 30px;
-}
-
-#email_us button {
-    background-color: white;
-    width: 8em;
-    border: none;
-    border-radius: 3px;
 }
 
 #email_us fieldset {
     border: none;
 }
+
+#email_us .form-control {
+    margin-bottom: 0.75rem;
+}
+
+.btn-submit {
+    margin-bottom: 1rem;
+}
+

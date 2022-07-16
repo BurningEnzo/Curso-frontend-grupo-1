@@ -32,7 +32,7 @@
 
 @media (min-width: 769px) {
   .main-header {
-    background-image: url("/img/header.jpg");
+    background-image: url("../img/header.jpg");
     padding-left: 20px;
   }
   .nav-item {
@@ -45,7 +45,7 @@
 
 @media (min-width: 376px) and (max-width: 768px) {
   .main-header {
-    background-image: url("/img/header-mini.png");
+    background-image: url("../img/header-mini.png");
     padding-left: 20px;
     height: 30vh;
   }
@@ -62,7 +62,7 @@
 
 @media (max-width: 375px) {
   .main-header {
-    background-image: url("/img/header-mini.png");
+    background-image: url("../img/header-mini.png");
     justify-content: center;
     height: 30vh;
   }

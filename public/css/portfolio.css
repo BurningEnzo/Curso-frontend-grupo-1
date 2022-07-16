@@ -35,8 +35,64 @@ h2 {
   margin-bottom: 0.5em;
 }
 
-#portfolio img:hover {
+
+.img-responsive:hover {
   rotate: -4deg;
   transition-delay: 0.2s;
-  transition-duration: 1.1s;
+  transition-duration: 1.1s; 
 }
+
+.spin:hover {
+  rotate: -360deg;
+  transition-delay: 0.2s;
+  transition-duration: 1s;
+  border-radius: 50px;
+}
+
+
+.spin img {
+  transition: 1s;
+}
+
+.spin img:hover {
+
+  border-radius: 50%; 
+
+  
+}
+
+
+/*----------- IMAGES -------------------*/
+
+.img-responsive:hover {
+
+  -moz-transform: rotate(0deg); 
+  -moz-transform: rotate(-4deg);
+  
+
+}
+.img-responsive:hover {
+
+  -webkit-transform: rotate(0deg);
+  -webkit-transform: rotate(-4deg);
+}
+.img-responsive:hover {
+  transform:rotate(0deg);
+  transform:rotate(-4deg);
+}
+
+
+/*----------------- SPIN / GIRO __________________*/
+.spin {
+  -moz-transform: rotate(0deg); 
+  -moz-transform: rotate(-360deg); 
+}
+.spin {
+  -webkit-transform: rotate(0deg); 
+  -webkit-transform: rotate(-360deg);
+}
+.spin {
+  transform:rotate(0deg);
+  transform:rotate(-360deg);
+}
+

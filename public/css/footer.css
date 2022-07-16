@@ -1,18 +1,19 @@
 footer {
     background-color: #61458c;
     color: #fff;
-    text-align: right;
     font-size: small;
-    height: 35px;
+    height: 3rem;
+
+    /*text-align: right;
     display: flex;
     align-items: center;
-    justify-content: right;
+    justify-content: right;*/
 }
 
 footer a {
     color: #fff;
 }
 
-.footer-container {
-    margin: 20px;
+footer div {
+    height: 100%;
 }
