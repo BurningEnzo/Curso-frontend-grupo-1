@@ -1,4 +1,3 @@
-import fetch from 'node-fetch';
 
 async function getMyData() {
   let response = await fetch(    
@@ -8,4 +7,12 @@ async function getMyData() {
   console.log('data ',data);
 }
 
-getMyData();
+document.addEventListener("DOMContentLoaded", function (event) {  
+
+  const divWeather = document.getElementById("apiWeather");
+  console.log('divWeather ',divWeather);
+
+  getMyData();
+
+ 
+})
