@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
   console.log('divWeather ', divWeather);
 
+
   console.log('weather.data2');
   divWeather.innerHTML = weather.data;
 })
