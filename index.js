@@ -3,6 +3,7 @@
 const express = require("express");
 const app = express();
 const morgan = require("morgan");
+const cors = require('cors');
 
 const host = "localhost";
 const port = 8000;
@@ -12,6 +13,7 @@ const port = 8000;
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 
 app.use(express.static(__dirname + "/public"));
 

@@ -107,3 +107,31 @@ a.nav-link {
 .navbar-collapse.collapse.show > ul.navbar-nav {
   justify-content: end;
 }
+
+div.weather{
+  /*transition: width 10s;
+  transition-delay: 0.5s;
+  transition-timing-function: linear;
+  transform: translate(50px);*/
+  overflow: hidden;
+  text-align:start;
+  position: relative;
+  animation-name:animation_weather;
+  animation-duration: 15s;
+  /*animation-delay: 2s;*/
+  animation-iteration-count: infinite;
+}
+
+@keyframes animation_weather{
+  /*50%  {background-color:yellow; right:495px; top:0px;}*/
+  from {
+    margin-left: 100%;
+    width: 300%;
+  }
+
+  to {
+    margin-left: -50%;
+    width: 50%;
+  }
+
+}
