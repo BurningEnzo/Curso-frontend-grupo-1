@@ -3,47 +3,52 @@ async function getMyData() {
     "https://api.openweathermap.org/data/2.5/weather?lat=41.3879&lon=2.16992&units=metric&lang=ca&appid=98c5a609f513ca79bdbd1c97df82d17e"
   );
   const data = await response.json();
-  console.log('datos json', data);
+  console.log("datos json", data);
 
   const name = data.name;
-  console.log('name',name);
+  console.log("name", name);
   const tempMin = data.main.temp_min;
   console.log(tempMin);
   const tempMax = data.main.temp_max;
   console.log(tempMax);
   const humidity = data.main.humidity;
   console.log(humidity);
-  
-  
-  const divWeather = document.getElementById("divWeather");
+  const weather = data.weather;
+  console.log("weather: ", weather);
 
-  const divName = document.getElementById("name");
+  const pWeather = document.getElementById("pWeather");
 
-  const divTempMin= document.getElementById("tempMin");
+  const divLocation = document.getElementById("divLocation");
 
-  if (name!==null)divName.textContent = name;
-  
-  //if (tempMin!==null) divTempMin.textContent = tempMin;  
-  
+  const divTempMin = document.getElementById("tempMin");
 
-  divWeather.textContent =`${name} Temperatura mínima ${tempMin}` ;
-  //Temperatura máxima ${tempMax} Humedad ${humidity}%`;
+  const divTempMax = document.getElementById("tempMax");
+
+  const divHumidity = document.getElementById("humidity");
+
+  const divWeatherMain = document.getElementById("weatherMain");
+
+  if (name !== null) divLocation.textContent = name;
+
+  if (tempMin !== null) divTempMin.textContent = `Min temp.  ${tempMin} ºC`;
+
+  if (tempMax !== null) divTempMax.textContent = `Max temp.   ${tempMax} ºC`;
+
+  if (humidity !== null) divHumidity.textContent = `Humidity ${humidity} %`;
+  debugger;
+
+  if (weather[0].main !== null) divWeatherMain.textContent = weather[0].main;
 
   console.log("data ", data);
 }
 
-
-
 document.addEventListener("DOMContentLoaded", function (event) {
-  const divWeather = document.getElementById("apiWeather");
-
+  const pWeather = document.getElementById("weather");
   getMyData();
 
-  //console.log("divWeather ", divWeather);
+  //console.log("pWeather ", pWeather);
 
   //console.log("weather.data2");
 
-  //divWeather.innerHTML = weather.data;
+  //pWeather.innerHTML = weather.data;
 });
-
-
