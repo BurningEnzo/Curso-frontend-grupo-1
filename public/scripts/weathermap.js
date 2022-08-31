@@ -35,7 +35,7 @@ async function getMyData() {
   if (tempMax !== null) divTempMax.textContent = `Max temp.   ${tempMax} ºC`;
 
   if (humidity !== null) divHumidity.textContent = `Humidity ${humidity} %`;
-  debugger;
+
 
   if (weather[0].main !== null) divWeatherMain.textContent = weather[0].main;
 

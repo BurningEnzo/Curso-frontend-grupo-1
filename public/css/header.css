@@ -108,26 +108,39 @@ a.nav-link {
   justify-content: end;
 }
 
-.weather {  
-  display:flex;
+.weather {
+  display: flex;
   justify-content: space-evenly;
-  height: 3em;
-  overflow: hidden;
+  height: 3em;  
   text-align: start;
-  align-items: center;
-  animation-name: animation_weather;
-  animation-duration: 13s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
+  align-items: center;  
+  background: coral;
+  /*border-color: coral;
+  fill: coral;  
+  border-left-color: coral;
+  border-right-color: coral;
+  outline-color: coral;*/
 }
 
-@keyframes animation_weather {  
-  from {
-    margin-left: 100%;
-    width: 100%;
+div#divLocation,div#weatherMain,
+div#tempMin,
+div#tempMax,
+div#humidity{
+  animation-name: animation_weather;
+  animation-duration: 15s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  /*Cada vez que termina un ciclo, la animación se reinicia al estado inicial
+   y comienza desde el principio. Este es el comportamiento por defecto.*/
+  animation-direction: normal;
+  position: relative;
+}
+
+@keyframes animation_weather{
+  0%{
+    right:-100%;
   }
-  to {
-    margin-left: -100%;
-    width: 100%;
+  100%{
+    right:100%;
   }
 }
