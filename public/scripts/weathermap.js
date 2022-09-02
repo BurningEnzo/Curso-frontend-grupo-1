@@ -5,6 +5,10 @@ async function getMyData() {
   const data = await response.json();
   console.log("datos json", data);
 
+  /*Icon images*/
+  const CLEAR_SKY = 'clear sky';
+
+  
   const name = data.name;
   console.log("name", name);
   const tempMin = data.main.temp_min;
@@ -35,7 +39,6 @@ async function getMyData() {
   if (tempMax !== null) divTempMax.textContent = `Max temp.   ${tempMax} ºC`;
 
   if (humidity !== null) divHumidity.textContent = `Humidity ${humidity} %`;
-
 
   if (weather[0].main !== null) divWeatherMain.textContent = weather[0].main;
 
