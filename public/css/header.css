@@ -44,6 +44,7 @@
   .main-header h1 {
     font-size: 3em;
   }
+  
   /*.imageIcon{
     height: 80vh;
   }*/
@@ -126,16 +127,25 @@ a.nav-link {
 
 .weather {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   height: 4em;
   text-align: start;
   align-items: center;
-  background: coral;
+  background: #bfb4d1;  
+  color:#262429;
+  font-weight: bold;
+  font-size: 1.1em;
   /*El scroll se mantiene oculto, los div's hijos se mantienen dentro del contenedor weather*/
   overflow-x: hidden;
   /*Corregir el icono es demasiado grande*/
   overflow-y: hidden;
   /*object-fit: contain;*/
+}
+
+div#buttonClose{ 
+  text-align: end;
+  padding-right: 10px;       
+  background: #bfb4d1;   
 }
 
 /* Init weatherMap*/
