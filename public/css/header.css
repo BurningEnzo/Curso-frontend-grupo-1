@@ -99,7 +99,7 @@
   position: relative;
 }
 
-.collapse.show>ul {
+.collapse.show > ul {
   justify-content: center;
 }
 
@@ -116,7 +116,7 @@ a.nav-link {
   color: #fff;
 }
 
-.navbar-collapse.collapse.show>ul.navbar-nav {
+.navbar-collapse.collapse.show > ul.navbar-nav {
   justify-content: end;
 }
 
@@ -139,7 +139,6 @@ div#weatherMain,
 div#tempMin,
 div#tempMax,
 div#humidity {
-  
   animation-name: animation_weather;
   animation-duration: 15s;
   animation-iteration-count: infinite;
