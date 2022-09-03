@@ -44,6 +44,10 @@
   .main-header h1 {
     font-size: 3em;
   }
+  /*.imageIcon{
+    height: 80vh;
+  }*/
+
 }
 
 @media (min-width: 376px) and (max-width: 768px) {
@@ -99,7 +103,7 @@
   position: relative;
 }
 
-.collapse.show > ul {
+.collapse.show>ul {
   justify-content: center;
 }
 
@@ -116,14 +120,14 @@ a.nav-link {
   color: #fff;
 }
 
-.navbar-collapse.collapse.show > ul.navbar-nav {
+.navbar-collapse.collapse.show>ul.navbar-nav {
   justify-content: end;
 }
 
 .weather {
   display: flex;
   justify-content: space-evenly;
-  height: 3em;
+  height: 4em;
   text-align: start;
   align-items: center;
   background: coral;
@@ -134,8 +138,9 @@ a.nav-link {
   /*object-fit: contain;*/
 }
 
+/* Init weatherMap*/
 div#divLocation,
-div#weatherMain,
+div#divWeatherMain,
 div#tempMin,
 div#tempMax,
 div#humidity {
@@ -149,6 +154,10 @@ div#humidity {
   position: relative;
 }
 
+.imageIcon {
+ object-fit: contain;
+}
+
 @keyframes animation_weather {
   0% {
     right: -100%;
@@ -158,3 +167,5 @@ div#humidity {
     right: 100%;
   }
 }
+
+/*End wetherMap*/

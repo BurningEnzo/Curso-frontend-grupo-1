@@ -1,48 +1,51 @@
 async function getMyData() {
+
+  const URL_WEATHERMAP = "https://api.openweathermap.org/data/2.5/weather";
+  const LAT = "41.3879";
+  const LON = "2.16992";
+  const UNITS = "metric";
+  const LANG = "ca";
+  const APPID = "98c5a609f513ca79bdbd1c97df82d17e";
+
   const response = await fetch(
-    "https://api.openweathermap.org/data/2.5/weather?lat=41.3879&lon=2.16992&units=metric&lang=ca&appid=98c5a609f513ca79bdbd1c97df82d17e"
+    `${URL_WEATHERMAP}?lat=${LAT}&lon=${LON}&units=${UNITS}&appid=${APPID}&lang=${LANG}`
   );
+
   const data = await response.json();
   console.log("datos json", data);
 
   const name = data.name;
-  console.log("name", name);
   const tempMin = data.main.temp_min;
-  console.log(tempMin);
   const tempMax = data.main.temp_max;
-  console.log(tempMax);
   const humidity = data.main.humidity;
-  console.log(humidity);
-  const weather = data.weather[0].main;
-  console.log("weather", weather);
+  const weatherMain = data.weather[0].main;
+  const weatherDescription = data.weather[0].description;
   const icon = data.weather[0].icon;
-  console.log("icon: ", icon);
 
   const divLocation = document.getElementById("divLocation");
-
   const divTempMin = document.getElementById("tempMin");
-
   const divTempMax = document.getElementById("tempMax");
-
   const divHumidity = document.getElementById("humidity");
+  const divWeatherMain = document.getElementById("divWeatherMain");
 
   if (name !== null) divLocation.textContent = name;
-
   if (tempMin !== null) divTempMin.textContent = `Min temp.  ${tempMin} ºC`;
-
   if (tempMax !== null) divTempMax.textContent = `Max temp.   ${tempMax} ºC`;
-
   if (humidity !== null) divHumidity.textContent = `Humidity ${humidity} %`;
+  if (weatherMain !== null) divWeatherMain.textContent = `${weatherMain}, ${weatherDescription}`;
 
-  //if (city !== null) divLocation.textContent = city;
-
-  //const URL = "https://openweathermap.org/img/wn/02n@2x.png";
-  const imageIcon = async (icon) => {
+  const imageIcon = async icon => {
+    const URL_WEATHERMAP_ICON = "https://openweathermap.org/img/wn/";
+    const CODE_EXT_ICON = "@2x.png";
     try {
       const response = await fetch(
-        "https://openweathermap.org/img/wn/" + icon + "@2x.png",
+        `${URL_WEATHERMAP_ICON}${icon}${CODE_EXT_ICON}`,
         {
-          method: "GET",
+          method: 'GET',
+          headers: new Headers(),
+          mode: 'cors',
+          cache: 'default',
+          credentials: 'same-origin',          
         }
       );
       const data = await response.blob();
@@ -57,9 +60,9 @@ async function getMyData() {
     const blobImage = await imageIcon(icon);
     const url = URL.createObjectURL(blobImage);
     const image = document.createElement("img");
+    image.classList.add("imageIcon");
     image.src = url;
-    const divWeatherMain = document.getElementById("weatherMain");
-    divWeatherMain.textContent = weather;
+    image.alt = weatherMain;
     divWeatherMain.appendChild(image);
   }
 }
