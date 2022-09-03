@@ -129,6 +129,9 @@ a.nav-link {
   background: coral;
   /*El scroll se mantiene oculto, los div's hijos se mantienen dentro del contenedor weather*/
   overflow-x: hidden;
+  /*Corregir el icono es demasiado grande*/
+  overflow-y: hidden;
+  /*object-fit: contain;*/
 }
 
 div#divLocation,
@@ -136,6 +139,7 @@ div#weatherMain,
 div#tempMin,
 div#tempMax,
 div#humidity {
+  
   animation-name: animation_weather;
   animation-duration: 15s;
   animation-iteration-count: infinite;

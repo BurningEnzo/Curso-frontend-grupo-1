@@ -13,7 +13,8 @@ async function getMyData() {
   console.log(tempMax);
   const humidity = data.main.humidity;
   console.log(humidity);
-  const city = data.weather[0].main;
+  const weather = data.weather[0].main;
+  console.log("weather", weather);
   const icon = data.weather[0].icon;
   console.log("icon: ", icon);
 
@@ -25,8 +26,6 @@ async function getMyData() {
 
   const divHumidity = document.getElementById("humidity");
 
-  const divWeatherMain = document.getElementById("weatherMain");
-
   if (name !== null) divLocation.textContent = name;
 
   if (tempMin !== null) divTempMin.textContent = `Min temp.  ${tempMin} ºC`;
@@ -35,16 +34,34 @@ async function getMyData() {
 
   if (humidity !== null) divHumidity.textContent = `Humidity ${humidity} %`;
 
-  if (city !== null) divWeatherMain.textContent = city;
+  //if (city !== null) divLocation.textContent = city;
+
+  //const URL = "https://openweathermap.org/img/wn/02n@2x.png";
+  const imageIcon = async (icon) => {
+    try {
+      const response = await fetch(
+        "https://openweathermap.org/img/wn/" + icon + "@2x.png",
+        {
+          method: "GET",
+        }
+      );
+      const data = await response.blob();
+      return data;
+    } catch (error) {
+      console.error(`${error}`);
+      return error;
+    }
+  };
 
   if (icon !== null) {
-    const response = await fetch(
-      `http://openweathermap.org/${icon}@2x.png`
-    );
+    const blobImage = await imageIcon(icon);
+    const url = URL.createObjectURL(blobImage);
+    const image = document.createElement("img");
+    image.src = url;
+    const divWeatherMain = document.getElementById("weatherMain");
+    divWeatherMain.textContent = weather;
+    divWeatherMain.appendChild(image);
   }
-
-
-  console.log("data ", data);
 }
 
 document.addEventListener("DOMContentLoaded", function (event) {
