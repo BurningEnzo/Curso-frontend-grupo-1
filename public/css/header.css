@@ -44,19 +44,11 @@
   .main-header h1 {
     font-size: 3em;
   }
-  .weather {
-    height: 8vh;   
 
-    /*font-size: 1.1em;*/
+  .weather {
+    height: 8vh;
   }
-  /*#buttonClose{
-    border-bottom:0px;
-    margin-bottom: 0px;
-    padding-bottom: 0px;    
-  }*/
-  /*.imageIcon{
-    height: 80vh;
-  }*/
+
   div#divLocation,
   div#divWeatherMain,
   div#tempMin,
@@ -70,9 +62,21 @@
     animation-duration: 15s;
     animation-name: animation_weather_min_width_769px;
   }
+
   .imageIcon {
     height: 80px;
     width: 80px;
+  }
+
+  div#buttonClose {    
+    margin-bottom: 50px;
+    font-size: 20px;
+    background: #bfb4d1;   
+  }
+  div#buttonClose:hover{   
+   background-color:#61458c;   
+   border-radius: 4px;
+   cursor:pointer;
   }
 }
 
@@ -94,26 +98,39 @@
   .navbar-nav {
     margin-left: 0;
   }
-  .weather {
-    /*height: 3em;*/
+
+  .weather {   
     font-size: 1em;
-    max-height: 6vh;   
+    max-height: 6vh;
   }
+
   div#divLocation,
   div#divWeatherMain,
   div#tempMin,
   div#tempMax,
-  div#humidity {    
+  div#humidity {
     padding-right: 15px;
-    padding-left: 15px;    
+    padding-left: 15px;
     white-space: nowrap;
     animation-duration: 15s;
     animation-name: animation_weather_max_width_768px;
   }
+
   .imageIcon {
     height: 80px;
     width: 80px;
-  } 
+  }
+
+  div#buttonClose {
+    left: -20px;
+    font-size: 80px;
+    padding-right: 50px;
+    padding-left: 10px;
+    height: 0px;
+    white-space: nowrap;
+    width: 5vw;
+    float: left;
+  }
 }
 
 @media (max-width: 375px) {
@@ -134,43 +151,46 @@
   .navbar-nav {
     margin-left: 0;
   }
-  .weather {    
+
+  .weather {
     font-size: 0.8em;
-    height: 7vh; 
-    align-items: flex-start;  
+    height: 7vh;
+    align-items: flex-start;
     overflow-x: visible;
   }
+
   div#divLocation,
   div#divWeatherMain,
   div#tempMin,
   div#tempMax,
-  div#humidity {
-    /*flex-basis: max-content;*/
+  div#humidity {    
     padding-right: 10px;
-    padding-left: 10px;
-    /*align-items: stretch;*/
+    padding-left: 10px;  
     white-space: nowrap;
     animation-duration: 15s;
     animation-name: animation_weather_max_width_768px;
   }
+
   div#divWeatherMain {
     padding-right: 0px;
-    padding-top:2px;
+    padding-top: 2px;
   }
+
+
+  .imageIcon {
+    height: 70px;
+    width: 70px;
+  }
+
   div#buttonClose {
-    left:-20px;
+    left: -20px;
     font-size: 80px;
     padding-right: 50px;
     padding-left: 10px;
     height: 0px;
     white-space: nowrap;
     width: 5vw;
-    float:left;
-  }
-
-  .imageIcon {
-    height: 70px;
-    width: 70px;
+    float: left;
   }
 }
 
@@ -187,7 +207,7 @@
   position: relative;
 }
 
-.collapse.show > ul {
+.collapse.show>ul {
   justify-content: center;
 }
 
@@ -204,7 +224,7 @@ a.nav-link {
   color: #fff;
 }
 
-.navbar-collapse.collapse.show > ul.navbar-nav {
+.navbar-collapse.collapse.show>ul.navbar-nav {
   justify-content: end;
 }
 
@@ -223,14 +243,6 @@ a.nav-link {
   /*object-fit: contain;*/
 }
 
-div#buttonClose {
-  /*text-align: end;*/
-  padding-right: 10px;
-  background: #bfb4d1;
-  height: 40px;
-  /*float:right;*/
-}
-
 /* Init weatherMap*/
 div#divLocation,
 div#divWeatherMain,
@@ -246,6 +258,7 @@ div#humidity {
   animation-direction: normal;
   position: relative;
 }
+
 /*div#divWeatherMain{
   width: 20%;
 }*/

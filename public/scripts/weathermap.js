@@ -32,7 +32,7 @@ async function getMyData() {
   if (tempMin !== null) divTempMin.textContent = `Temp. min ${tempMin}ºC`;
   if (tempMax !== null) divTempMax.textContent = `Temp. max ${tempMax}ºC`;
   if (humidity !== null) divHumidity.textContent = `Humitat ${humidity}%`;
-  if (weatherMain !== null) divWeatherMain.textContent = weatherDescription[0].toUpperCase()+weatherDescription.substring(1);
+  if (weatherMain !== null) divWeatherMain.textContent = weatherDescription[0].toUpperCase() + weatherDescription.substring(1);
 
   const imageIcon = async icon => {
     const URL_WEATHERMAP_ICON = "https://openweathermap.org/img/wn/";
@@ -45,7 +45,7 @@ async function getMyData() {
           headers: new Headers(),
           mode: 'cors',
           cache: 'default',
-          credentials: 'same-origin',          
+          credentials: 'same-origin',
         }
       );
       const data = await response.blob();
@@ -66,14 +66,17 @@ async function getMyData() {
     divWeatherMain.appendChild(image);
   }
 }
-
+debugger;
 document.addEventListener("DOMContentLoaded", function (event) {
-  const pWeather = document.getElementById("weather");
   getMyData();
-
-  //console.log("pWeather ", pWeather);
-
-  //console.log("weather.data2");
-
-  //pWeather.innerHTML = weather.data;
+  debugger;
+  const pWeather = document.getElementById("divWeather");
+  const buttonClick = document.getElementById("buttonClose");
+  buttonClick.addEventListener("click", removeButton(pWeather));
 });
+
+function removeButton(pWeather) {  
+    document.body.removeChild(pWeather);
+}
+
+
