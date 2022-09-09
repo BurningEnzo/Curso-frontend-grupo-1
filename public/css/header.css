@@ -44,11 +44,36 @@
   .main-header h1 {
     font-size: 3em;
   }
-  
+  .weather {
+    height: 8vh;   
+
+    /*font-size: 1.1em;*/
+  }
+  /*#buttonClose{
+    border-bottom:0px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;    
+  }*/
   /*.imageIcon{
     height: 80vh;
   }*/
-
+  div#divLocation,
+  div#divWeatherMain,
+  div#tempMin,
+  div#tempMax,
+  div#humidity {
+    flex-basis: max-content;
+    padding-right: 20px;
+    padding-left: 20px;
+    align-items: stretch;
+    white-space: nowrap;
+    animation-duration: 15s;
+    animation-name: animation_weather_min_width_769px;
+  }
+  .imageIcon {
+    height: 80px;
+    width: 80px;
+  }
 }
 
 @media (min-width: 376px) and (max-width: 768px) {
@@ -69,6 +94,26 @@
   .navbar-nav {
     margin-left: 0;
   }
+  .weather {
+    /*height: 3em;*/
+    font-size: 1em;
+    max-height: 6vh;   
+  }
+  div#divLocation,
+  div#divWeatherMain,
+  div#tempMin,
+  div#tempMax,
+  div#humidity {    
+    padding-right: 15px;
+    padding-left: 15px;    
+    white-space: nowrap;
+    animation-duration: 15s;
+    animation-name: animation_weather_max_width_768px;
+  }
+  .imageIcon {
+    height: 80px;
+    width: 80px;
+  } 
 }
 
 @media (max-width: 375px) {
@@ -89,6 +134,44 @@
   .navbar-nav {
     margin-left: 0;
   }
+  .weather {    
+    font-size: 0.8em;
+    height: 7vh; 
+    align-items: flex-start;  
+    overflow-x: visible;
+  }
+  div#divLocation,
+  div#divWeatherMain,
+  div#tempMin,
+  div#tempMax,
+  div#humidity {
+    /*flex-basis: max-content;*/
+    padding-right: 10px;
+    padding-left: 10px;
+    /*align-items: stretch;*/
+    white-space: nowrap;
+    animation-duration: 15s;
+    animation-name: animation_weather_max_width_768px;
+  }
+  div#divWeatherMain {
+    padding-right: 0px;
+    padding-top:2px;
+  }
+  div#buttonClose {
+    left:-20px;
+    font-size: 80px;
+    padding-right: 50px;
+    padding-left: 10px;
+    height: 0px;
+    white-space: nowrap;
+    width: 5vw;
+    float:left;
+  }
+
+  .imageIcon {
+    height: 70px;
+    width: 70px;
+  }
 }
 
 .navbar-button {
@@ -104,7 +187,7 @@
   position: relative;
 }
 
-.collapse.show>ul {
+.collapse.show > ul {
   justify-content: center;
 }
 
@@ -121,20 +204,18 @@ a.nav-link {
   color: #fff;
 }
 
-.navbar-collapse.collapse.show>ul.navbar-nav {
+.navbar-collapse.collapse.show > ul.navbar-nav {
   justify-content: end;
 }
 
 .weather {
   display: flex;
-  justify-content: space-between;
-  height: 4em;
+  justify-content: space-around;
   text-align: start;
   align-items: center;
-  background: #bfb4d1;  
-  color:#262429;
+  background: #bfb4d1;
+  color: #262429;
   font-weight: bold;
-  font-size: 1.1em;
   /*El scroll se mantiene oculto, los div's hijos se mantienen dentro del contenedor weather*/
   overflow-x: hidden;
   /*Corregir el icono es demasiado grande*/
@@ -142,10 +223,12 @@ a.nav-link {
   /*object-fit: contain;*/
 }
 
-div#buttonClose{ 
-  text-align: end;
-  padding-right: 10px;       
-  background: #bfb4d1;   
+div#buttonClose {
+  /*text-align: end;*/
+  padding-right: 10px;
+  background: #bfb4d1;
+  height: 40px;
+  /*float:right;*/
 }
 
 /* Init weatherMap*/
@@ -154,27 +237,36 @@ div#divWeatherMain,
 div#tempMin,
 div#tempMax,
 div#humidity {
-  animation-name: animation_weather;
-  animation-duration: 15s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
+  text-align: center;
+
   /*Cada vez que termina un ciclo, la animación se reinicia al estado inicial
    y comienza desde el principio. Este es el comportamiento por defecto.*/
   animation-direction: normal;
   position: relative;
 }
+/*div#divWeatherMain{
+  width: 20%;
+}*/
 
-.imageIcon {
- object-fit: contain;
-}
-
-@keyframes animation_weather {
+@keyframes animation_weather_min_width_769px {
   0% {
     right: -100%;
   }
 
   100% {
     right: 100%;
+  }
+}
+
+@keyframes animation_weather_max_width_768px {
+  0% {
+    right: -150%;
+  }
+
+  100% {
+    right: 150%;
   }
 }
 

@@ -1,408 +1,476 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/header.css" />
+    <link rel="stylesheet" href="./css/location.css" />
+    <link rel="stylesheet" href="./css/emailus.css" />
+    <link rel="stylesheet" href="./css/footer.css" />
+    <link rel="stylesheet" href="./css/sections.css" />
+    <link rel="stylesheet" href="./css/portfolio.css" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="./css/style.css" />
-  <link rel="stylesheet" href="./css/header.css" />
-  <link rel="stylesheet" href="./css/location.css" />
-  <link rel="stylesheet" href="./css/emailus.css" />
-  <link rel="stylesheet" href="./css/footer.css" />
-  <link rel="stylesheet" href="./css/sections.css" />
-  <link rel="stylesheet" href="./css/portfolio.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+      rel="stylesheet"
+    />
+    <title>My Business Webpage</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <script type="module" src="./scripts/weathermap.js"></script>
+  </head>
 
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
-    rel="stylesheet" />
-  <title>My Business Webpage</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
-  <script type="module" src="./scripts/weathermap.js"></script>
-</head>
+  <body>
+    <header class="main-header">
+      <hgroup>
+        <h1>My Business Webpage</h1>
+      </hgroup>
+    </header>
 
-<body>
-  <header class="main-header">
-    <hgroup>
-      <h1>My Business Webpage</h1>
-    </hgroup>
-  </header>
+    <!-- Inma -->
 
-  <!-- Inma -->
-  <div id="buttonClose">X</div>
-  <div class="weather">    
-    <div id="divLocation"></div>
-    <div id="divWeatherMain"></div>
-    <div id="tempMin"></div>
-    <div id="tempMax"></div>
-    <div id="humidity"></div>
-    
-  </div>
-  <nav class="navbar navbar-custom navbar-expand-md navbar-expand-lg navbar-dark justify-content-end">
-    <button class="navbar-toggler float-end" type="button" data-bs-toggle="collapse"
-      data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-      aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav navbar-expand-sm nav-pills flex-column flex-md-row ml-auto mt-lg-0">
-        <li class="nav-item active">
-          <a class="nav-link" href="#who_we_are">Who We Are?</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#our_services">OurServices</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#portfolio">Portfolio</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#location">Location</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#email_us">EmailUs</a>
-        </li>
-      </ul>
+    <div class="weather">
+      <div id="divLocation"></div>
+      <div id="divWeatherMain"></div>
+      <div id="tempMin"></div>
+      <div id="tempMax"></div>
+      <div id="humidity"></div>
+      <div id="buttonClose">X</div>
     </div>
-  </nav>
+    <nav
+      class="navbar navbar-custom navbar-expand-md navbar-expand-lg navbar-dark justify-content-end"
+    >
+      <button
+        class="navbar-toggler float-end"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-  <main>
-    <!-- Jasar -->
-
-    <section id="who_we_are">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <h2>Who we are?</h2>
-            <p class="subtitle">
-              Lorem ipsum dolor sit amet, consectetur adip.<br />
-              Sed do eiusmod tempor incididunt ut labore.<br />&nbsp;
-            </p>
-          </div>
-
-          <div class="container-left col-12 col-sm-12 col-md-12 col-lg-6">
-            <h3>Lorem Ipsum</h3>
-            <br />
-            <p>
-              <img class="image" src="./img/1.jpg" alt="Rocket toy" />
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-              inreprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui. "Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-              exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-              sint occaecat cupidatat non proident, sunt in culpa qui officia
-              deserunt mollit anim id est laborumfugiat nulla pariatur.
-              Excepteur sint occaecat cupidatat non proident, sunt in culpa
-              qui. "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-              sed do eiusmod tempor incididunt ut labore et dolore magna
-              aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-              ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-              aute irure dolor in reprehenderit in voluptate velit esse cillum
-              dolore eu fugiat nulla pariatur.
-            </p>
-          </div>
-
-          <!--  <Span id="line" class="d-none d-sm-none d-lg-none d-xl-block"></Span> -->
-
-          <div class="col-12 col-sm-12 col-md-12 col-lg-6">
-            <h3>Lorem Ipsum</h3>
-            <br />
-            <span class="d-none d-sm-none d-lg-block d-xl-block"><img class="Ad" src="./img/anuncio.jpg"
-                alt="Ad-Image" /></span>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quisnostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-              in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur Duis aute irure dolor in sed do.
-            </p>
-
-            <h3>Lorem Ipsum</h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-              in reprehenderit in voluptate velit essecillum dolore eu fugiat
-              nulla pariatusr. Excepteur sint occaecat cupidatat non proident,
-              sunt in
-            </p>
-          </div>
-        </div>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul
+          class="navbar-nav navbar-expand-sm nav-pills flex-column flex-md-row ml-auto mt-lg-0"
+        >
+          <li class="nav-item active">
+            <a class="nav-link" href="#who_we_are">Who We Are?</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#our_services">OurServices</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#portfolio">Portfolio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#location">Location</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#email_us">EmailUs</a>
+          </li>
+        </ul>
       </div>
-    </section>
+    </nav>
 
-    <section id="our_services">
-      <div class="container">
-        <div class="col-md-12">
-          <h2>Our Services</h2>
-          <br />
-        </div>
+    <main>
+      <!-- Jasar -->
 
-        <div class="row">
-          <div class="col-2 col-sm-4 col-md-1 col-lg-1">
-            <div class="icon-position">
-              <div class="icon-frame"><i class="fas fa-cloud"></i></div>
+      <section id="who_we_are">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <h2>Who we are?</h2>
+              <p class="subtitle">
+                Lorem ipsum dolor sit amet, consectetur adip.<br />
+                Sed do eiusmod tempor incididunt ut labore.<br />&nbsp;
+              </p>
             </div>
-          </div>
-          <div class="col-10 col-sm-8 col-md-11 col-lg-3">
-            <h3>Service 1</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipiscing elit ante,
-              pellentesque mollis maecenas per eleifend proin hendrerit semper
-              ridiculus, vel primis fames ligula nulla rutrum cubilia.
-            </p>
-          </div>
-          <div class="col-2 col-sm-4 col-md-1 col-lg-1">
-            <div class="icon-position">
-              <div class="icon-frame"><i class="fas fa-code"></i></div>
+
+            <div class="container-left col-12 col-sm-12 col-md-12 col-lg-6">
+              <h3>Lorem Ipsum</h3>
+              <br />
+              <p>
+                <img class="image" src="./img/1.jpg" alt="Rocket toy" />
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                inreprehenderit in voluptate velit esse cillum dolore eu fugiat
+                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                sunt in culpa qui. "Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate
+                velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+                sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborumfugiat nulla pariatur.
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa
+                qui. "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                sed do eiusmod tempor incididunt ut labore et dolore magna
+                aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+                aute irure dolor in reprehenderit in voluptate velit esse cillum
+                dolore eu fugiat nulla pariatur.
+              </p>
             </div>
-          </div>
-          <div class="col-10 col-sm-8 col-md-11 col-lg-3">
-            <h3>Service 2</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipiscing elit ante,
-              pellentesque mollis maecenas per eleifend proin hendrerit semper
-              ridiculus, vel primis fames ligula nulla rutrum cubilia.
-            </p>
-          </div>
-          <div class="col-2 col-sm-4 col-md-1 col-lg-1">
-            <div class="icon-position">
-              <div class="icon-frame"><i class="fas fa-wifi"></i></div>
+
+            <!--  <Span id="line" class="d-none d-sm-none d-lg-none d-xl-block"></Span> -->
+
+            <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+              <h3>Lorem Ipsum</h3>
+              <br />
+              <span class="d-none d-sm-none d-lg-block d-xl-block"
+                ><img class="Ad" src="./img/anuncio.jpg" alt="Ad-Image"
+              /></span>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quisnostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                nulla pariatur. Excepteur Duis aute irure dolor in sed do.
+              </p>
+
+              <h3>Lorem Ipsum</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                in reprehenderit in voluptate velit essecillum dolore eu fugiat
+                nulla pariatusr. Excepteur sint occaecat cupidatat non proident,
+                sunt in
+              </p>
             </div>
-          </div>
-          <div class="col-10 col-sm-8 col-md-11 col-lg-3">
-            <h3>Service 3</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipiscing elit ante,
-              pellentesque mollis maecenas per eleifend proin hendrerit semper
-              ridiculus, vel primis fames ligula nulla rutrum cubilia.
-            </p>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-2 col-sm-4 col-md-1 col-lg-1">
-            <div class="icon-position">
-              <div class="icon-frame">
-                <i class="fas fa-globe-africa"></i>
-              </div>
-            </div>
-          </div>
-          <div class="col-10 col-sm-8 col-md-11 col-lg-3">
-            <h3>Service 4</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipiscing elit ante,
-              pellentesque mollis maecenas per eleifend proin hendrerit semper
-              ridiculus, vel primis fames ligula nulla rutrum cubilia.
-            </p>
-          </div>
-          <div class="col-2 col-sm-4 col-md-1 col-lg-1">
-            <div class="icon-position">
-              <div class="icon-frame"><i class="fas fa-flag"></i></div>
-            </div>
-          </div>
-          <div class="col-10 col-sm-8 col-md-11 col-lg-3">
-            <h3>Service 5</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipiscing elit ante,
-              pellentesque mollis maecenas per eleifend proin hendrerit semper
-              ridiculus, vel primis fames ligula nulla rutrum cubilia.
-            </p>
-          </div>
-          <div class="col-2 col-sm-4 col-md-1 col-lg-1">
-            <div class="icon-position">
-              <div class="icon-frame"><i class="fas fa-bars"></i></div>
-            </div>
-          </div>
-          <div class="col-10 col-sm-8 col-md-10 col-lg-3">
-            <h3>Service 6</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipiscing elit ante,
-              pellentesque mollis maecenas per eleifend proin hendrerit semper
-              ridiculus, vel primis fames ligula nulla rutrum cubilia.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Felipe -->
-
-    <div class="container">
-      <section id="portfolio">
-        <div class="row">
-          <div class="md-12">
-            <h2>Portfolio</h2>
-            <p class="subtitle">There are success projects created by us</p>
-          </div>
-
-          <div class="col-12 col-sm-12 col-md-6 col-lg-4 img-responsive text-center mb-2">
-            <img src="./img/2.jpg" alt="img-thumbnail" />
-          </div>
-          <div class="col-12 col-sm-12 col-md-6 col-lg-4 img-responsive text-center mb-2">
-            <img src="./img/3.jpg" alt="img-thumbnail" />
-          </div>
-          <div class="col-12 col-sm-12 col-md-6 col-lg-4 img-responsive text-center mb-2">
-            <img src="./img/4.jpg" alt="img-thumbnail" />
-          </div>
-
-          <div class="col-12 col-sm-12 col-md-6 col-lg-4 img-responsive text-center mb-2">
-            <img src="./img/5.jpg" alt="This is a description image" />
-          </div>
-
-          <!---------------Rotar Imagen -360deg----------------->
-
-          <div class="col-12 col-sm-12 col-md-6 col-lg-4 spin text-center mb-2 img-responsive">
-            <img src="./img/6.jpg" alt="This is a description image" />
-          </div>
-
-          <!----------------Fins aquí--------------->
-
-          <div class="col-12 col-sm-12 col-md-6 col-lg-4 text-center img-responsive mb-2">
-            <img src="./img/7.jpg" alt="This is a description image" />
-          </div>
-
-          <div class="col-12 col-sm-12 col-md-6 col-lg-4 text-center img-responsive mb-2">
-            <img src="./img/8.jpg" alt="This is a description image" />
-          </div>
-          <div class="col-12 col-sm-12 col-md-6 col-lg-4 text-center img-responsive mb-2">
-            <img src="./img/9.jpg" alt="This is a description image" />
-          </div>
-          <div class="col-12 col-sm-12 col-md-2-text-center col-lg-4 img-responsive text-center mb2">
-            <img src="./img/10.jpg" alt="This is a description image" />
           </div>
         </div>
       </section>
-    </div>
 
-    <!-- Lorenzo -->
+      <section id="our_services">
+        <div class="container">
+          <div class="col-md-12">
+            <h2>Our Services</h2>
+            <br />
+          </div>
 
-    <section id="location" class="container text-center mb-4">
-      <h2 class="mb-4">Location</h2>
-      <header>
-        <h6 class="mb-4">You can find us:</h6>
-      </header>
-      <div class="container col-md-7">
-        <div class="row">
-          <div class="col map">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2993.404577406065!2d2.167858415726965!3d41.3870194039804!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a2f1602b4819%3A0x1eecc2af1c60d64b!2sPla%C3%A7a%20de%20Catalunya!5e0!3m2!1ses!2ses!4v1652463925397!5m2!1ses!2ses"
-              title="Location GoogleMaps" width="600" height="450" style="
+          <div class="row">
+            <div class="col-2 col-sm-4 col-md-1 col-lg-1">
+              <div class="icon-position">
+                <div class="icon-frame"><i class="fas fa-cloud"></i></div>
+              </div>
+            </div>
+            <div class="col-10 col-sm-8 col-md-11 col-lg-3">
+              <h3>Service 1</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipiscing elit ante,
+                pellentesque mollis maecenas per eleifend proin hendrerit semper
+                ridiculus, vel primis fames ligula nulla rutrum cubilia.
+              </p>
+            </div>
+            <div class="col-2 col-sm-4 col-md-1 col-lg-1">
+              <div class="icon-position">
+                <div class="icon-frame"><i class="fas fa-code"></i></div>
+              </div>
+            </div>
+            <div class="col-10 col-sm-8 col-md-11 col-lg-3">
+              <h3>Service 2</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipiscing elit ante,
+                pellentesque mollis maecenas per eleifend proin hendrerit semper
+                ridiculus, vel primis fames ligula nulla rutrum cubilia.
+              </p>
+            </div>
+            <div class="col-2 col-sm-4 col-md-1 col-lg-1">
+              <div class="icon-position">
+                <div class="icon-frame"><i class="fas fa-wifi"></i></div>
+              </div>
+            </div>
+            <div class="col-10 col-sm-8 col-md-11 col-lg-3">
+              <h3>Service 3</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipiscing elit ante,
+                pellentesque mollis maecenas per eleifend proin hendrerit semper
+                ridiculus, vel primis fames ligula nulla rutrum cubilia.
+              </p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-2 col-sm-4 col-md-1 col-lg-1">
+              <div class="icon-position">
+                <div class="icon-frame">
+                  <i class="fas fa-globe-africa"></i>
+                </div>
+              </div>
+            </div>
+            <div class="col-10 col-sm-8 col-md-11 col-lg-3">
+              <h3>Service 4</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipiscing elit ante,
+                pellentesque mollis maecenas per eleifend proin hendrerit semper
+                ridiculus, vel primis fames ligula nulla rutrum cubilia.
+              </p>
+            </div>
+            <div class="col-2 col-sm-4 col-md-1 col-lg-1">
+              <div class="icon-position">
+                <div class="icon-frame"><i class="fas fa-flag"></i></div>
+              </div>
+            </div>
+            <div class="col-10 col-sm-8 col-md-11 col-lg-3">
+              <h3>Service 5</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipiscing elit ante,
+                pellentesque mollis maecenas per eleifend proin hendrerit semper
+                ridiculus, vel primis fames ligula nulla rutrum cubilia.
+              </p>
+            </div>
+            <div class="col-2 col-sm-4 col-md-1 col-lg-1">
+              <div class="icon-position">
+                <div class="icon-frame"><i class="fas fa-bars"></i></div>
+              </div>
+            </div>
+            <div class="col-10 col-sm-8 col-md-10 col-lg-3">
+              <h3>Service 6</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipiscing elit ante,
+                pellentesque mollis maecenas per eleifend proin hendrerit semper
+                ridiculus, vel primis fames ligula nulla rutrum cubilia.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Felipe -->
+
+      <div class="container">
+        <section id="portfolio">
+          <div class="row">
+            <div class="md-12">
+              <h2>Portfolio</h2>
+              <p class="subtitle">There are success projects created by us</p>
+            </div>
+
+            <div
+              class="col-12 col-sm-12 col-md-6 col-lg-4 img-responsive text-center mb-2"
+            >
+              <img src="./img/2.jpg" alt="img-thumbnail" />
+            </div>
+            <div
+              class="col-12 col-sm-12 col-md-6 col-lg-4 img-responsive text-center mb-2"
+            >
+              <img src="./img/3.jpg" alt="img-thumbnail" />
+            </div>
+            <div
+              class="col-12 col-sm-12 col-md-6 col-lg-4 img-responsive text-center mb-2"
+            >
+              <img src="./img/4.jpg" alt="img-thumbnail" />
+            </div>
+
+            <div
+              class="col-12 col-sm-12 col-md-6 col-lg-4 img-responsive text-center mb-2"
+            >
+              <img src="./img/5.jpg" alt="This is a description image" />
+            </div>
+
+            <!---------------Rotar Imagen -360deg----------------->
+
+            <div
+              class="col-12 col-sm-12 col-md-6 col-lg-4 spin text-center mb-2 img-responsive"
+            >
+              <img src="./img/6.jpg" alt="This is a description image" />
+            </div>
+
+            <!----------------Fins aquí--------------->
+
+            <div
+              class="col-12 col-sm-12 col-md-6 col-lg-4 text-center img-responsive mb-2"
+            >
+              <img src="./img/7.jpg" alt="This is a description image" />
+            </div>
+
+            <div
+              class="col-12 col-sm-12 col-md-6 col-lg-4 text-center img-responsive mb-2"
+            >
+              <img src="./img/8.jpg" alt="This is a description image" />
+            </div>
+            <div
+              class="col-12 col-sm-12 col-md-6 col-lg-4 text-center img-responsive mb-2"
+            >
+              <img src="./img/9.jpg" alt="This is a description image" />
+            </div>
+            <div
+              class="col-12 col-sm-12 col-md-2-text-center col-lg-4 img-responsive text-center mb2"
+            >
+              <img src="./img/10.jpg" alt="This is a description image" />
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Lorenzo -->
+
+      <section id="location" class="container text-center mb-4">
+        <h2 class="mb-4">Location</h2>
+        <header>
+          <h6 class="mb-4">You can find us:</h6>
+        </header>
+        <div class="container col-md-7">
+          <div class="row">
+            <div class="col map">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2993.404577406065!2d2.167858415726965!3d41.3870194039804!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a2f1602b4819%3A0x1eecc2af1c60d64b!2sPla%C3%A7a%20de%20Catalunya!5e0!3m2!1ses!2ses!4v1652463925397!5m2!1ses!2ses"
+                title="Location GoogleMaps"
+                width="600"
+                height="450"
+                style="
                   border: 2px solid black;
                   border-radius: 100%;
                   height: 350px;
                   width: 350px;
-                " allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-          </div>
-          <div class="col d-flex flex-column justify-content-center">
-            <div class="row">
-              <div class="col text-lg-start my-4">
-                <section id="head_office">
-                  <h5>Head Office</h5>
-                  <p>
-                    <i>12356 Blank Street<br />
-                      Phone: <a href="tel:2456-134-321">2456-134-321</a><br />
-                      Email Address:
-                      <a href="mailto:info@domain.com">info@domain.com</a>
-                    </i>
-                  </p>
-                </section>
-              </div>
+                "
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
             </div>
-            <div class="row">
-              <div class="col text-lg-start my-4">
-                <section id="emea">
-                  <h5>Emea</h5>
-                  <p>
-                    <i>Carrer de Sant Joan de la Salle,42<br />08022
-                      Barcelona<br />
-                      Phone: <a href="tel:932902474">932902474</a><br />
-                      Email Address:
-                      <a href="mailto:info@salleurl.edu">info@salleurl.edu</a>
-                    </i>
-                  </p>
-                </section>
+            <div class="col d-flex flex-column justify-content-center">
+              <div class="row">
+                <div class="col text-lg-start my-4">
+                  <section id="head_office">
+                    <h5>Head Office</h5>
+                    <p>
+                      <i
+                        >12356 Blank Street<br />
+                        Phone: <a href="tel:2456-134-321">2456-134-321</a><br />
+                        Email Address:
+                        <a href="mailto:info@domain.com">info@domain.com</a>
+                      </i>
+                    </p>
+                  </section>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col text-lg-start my-4">
+                  <section id="emea">
+                    <h5>Emea</h5>
+                    <p>
+                      <i
+                        >Carrer de Sant Joan de la Salle,42<br />08022
+                        Barcelona<br />
+                        Phone: <a href="tel:932902474">932902474</a><br />
+                        Email Address:
+                        <a href="mailto:info@salleurl.edu">info@salleurl.edu</a>
+                      </i>
+                    </p>
+                  </section>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-    <section id="email_us" class="container-fluid">
-      <h2 class="mb-4">Email Us</h2>
-      <div class="d-flex justify-content-center">
-        <form action="/" method="post" class="col-md-7">
-          <div class="form-group row gx-5">
-            <label for="name" class="col-sm-2 col-form-label text-lg-end fw-bold">Name*:
-            </label>
-            <div class="col-md-10">
-              <input type="text" class="form-control" id="name" required />
+      </section>
+      <section id="email_us" class="container-fluid">
+        <h2 class="mb-4">Email Us</h2>
+        <div class="d-flex justify-content-center">
+          <form action="/" method="post" class="col-md-7">
+            <div class="form-group row gx-5">
+              <label
+                for="name"
+                class="col-sm-2 col-form-label text-lg-end fw-bold"
+                >Name*:
+              </label>
+              <div class="col-md-10">
+                <input type="text" class="form-control" id="name" required />
+              </div>
             </div>
-          </div>
-          <div class="form-group row gx-5">
-            <label for="email" class="col-sm-2 col-form-label text-lg-end fw-bold">Email*:
-            </label>
-            <div class="col-md-10">
-              <input type="email" class="form-control" id="email" required />
+            <div class="form-group row gx-5">
+              <label
+                for="email"
+                class="col-sm-2 col-form-label text-lg-end fw-bold"
+                >Email*:
+              </label>
+              <div class="col-md-10">
+                <input type="email" class="form-control" id="email" required />
+              </div>
             </div>
-          </div>
-          <div class="form-group row gx-5">
-            <label for="phone" class="col-sm-2 col-form-label text-lg-end fw-bold">Phone:
-            </label>
-            <div class="col-md-10">
-              <input type="tel" class="form-control" id="phone" />
+            <div class="form-group row gx-5">
+              <label
+                for="phone"
+                class="col-sm-2 col-form-label text-lg-end fw-bold"
+                >Phone:
+              </label>
+              <div class="col-md-10">
+                <input type="tel" class="form-control" id="phone" />
+              </div>
             </div>
-          </div>
-          <div class="form-group row gx-5">
-            <label for="subject" class="col-sm-2 col-form-label text-lg-end fw-bold">Subject*:
-            </label>
-            <div class="col-md-10">
-              <input type="text" class="form-control" id="subject" required />
+            <div class="form-group row gx-5">
+              <label
+                for="subject"
+                class="col-sm-2 col-form-label text-lg-end fw-bold"
+                >Subject*:
+              </label>
+              <div class="col-md-10">
+                <input type="text" class="form-control" id="subject" required />
+              </div>
             </div>
-          </div>
-          <div class="form-group row gx-5">
-            <label for="message" class="col-sm-2 col-form-label text-lg-end fw-bold">Message*:
-            </label>
-            <div class="col-md-10">
-              <textarea class="form-control" id="message" cols="30" rows="10" required></textarea>
+            <div class="form-group row gx-5">
+              <label
+                for="message"
+                class="col-sm-2 col-form-label text-lg-end fw-bold"
+                >Message*:
+              </label>
+              <div class="col-md-10">
+                <textarea
+                  class="form-control"
+                  id="message"
+                  cols="30"
+                  rows="10"
+                  required
+                ></textarea>
+              </div>
             </div>
-          </div>
-          <div class="d-flex justify-content-center">
-            <button type="submit" class="btn btn-light btn-submit">
-              Send
-            </button>
-          </div>
-        </form>
-      </div>
-    </section>
+            <div class="d-flex justify-content-center">
+              <button type="submit" class="btn btn-light btn-submit">
+                Send
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
 
-    <footer class="mt-auto container-fluid">
-      <div class="d-flex flex-col justify-content-end align-items-center">
-        <p class="mb-0">
-          © 2022 -
-          <a href="https://www.salleurl.edu/" target="_blank">LaSalle</a> All
-          Rights Reserved.
-        </p>
-      </div>
-    </footer>
-  </main>
+      <footer class="mt-auto container-fluid">
+        <div class="d-flex flex-col justify-content-end align-items-center">
+          <p class="mb-0">
+            © 2022 -
+            <a href="https://www.salleurl.edu/" target="_blank">LaSalle</a> All
+            Rights Reserved.
+          </p>
+        </div>
+      </footer>
+    </main>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-    crossorigin="anonymous"></script>
-</body>
-
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

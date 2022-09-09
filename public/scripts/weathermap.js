@@ -29,10 +29,10 @@ async function getMyData() {
   const divWeatherMain = document.getElementById("divWeatherMain");
 
   if (name !== null) divLocation.textContent = name;
-  if (tempMin !== null) divTempMin.textContent = `Min temp.  ${tempMin} ºC`;
-  if (tempMax !== null) divTempMax.textContent = `Max temp.   ${tempMax} ºC`;
-  if (humidity !== null) divHumidity.textContent = `Humidity ${humidity} %`;
-  if (weatherMain !== null) divWeatherMain.textContent = `${weatherMain}, ${weatherDescription}`;
+  if (tempMin !== null) divTempMin.textContent = `Temp. min ${tempMin}ºC`;
+  if (tempMax !== null) divTempMax.textContent = `Temp. max ${tempMax}ºC`;
+  if (humidity !== null) divHumidity.textContent = `Humitat ${humidity}%`;
+  if (weatherMain !== null) divWeatherMain.textContent = weatherDescription[0].toUpperCase()+weatherDescription.substring(1);
 
   const imageIcon = async icon => {
     const URL_WEATHERMAP_ICON = "https://openweathermap.org/img/wn/";
