@@ -1,3 +1,7 @@
+import { getCountries } from "./country.js";
+
+const listCountries = getCountries;
+
 async function getMyData() {
 
   const URL_WEATHERMAP = "https://api.openweathermap.org/data/2.5/weather";
@@ -44,7 +48,7 @@ async function getMyData() {
           method: 'GET',
           headers: new Headers(),
           mode: 'cors',
-          cache: 'default',          
+          cache: 'default',
           credentials: 'same-origin'
         }
       );
@@ -69,6 +73,9 @@ async function getMyData() {
 debugger;
 document.addEventListener("DOMContentLoaded", function (event) {
   getMyData();
+  listCountries;
+
+  console.log("list", listCountries);
   debugger;
   const pWeather = document.getElementById("divWeather");
   const buttonClick = document.getElementById("buttonClose");
@@ -79,6 +86,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
   });
 });
+
+
 
 
 
