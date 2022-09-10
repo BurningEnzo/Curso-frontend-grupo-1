@@ -1,0 +1,145 @@
+@media (min-width: 769px) {
+  .weather {
+    height: 8vh;
+  }
+
+  .weather-item {
+    flex-basis: max-content;
+    padding-right: 20px;
+    padding-left: 20px;
+    align-items: stretch;
+    white-space: nowrap;
+    animation-duration: 15s;
+    animation-name: animation_weather_min_width_769px;
+  }
+
+  .imageIcon {
+    height: 80px;
+    width: 80px;
+  }
+
+  div#buttonClose {
+    margin-bottom: 50px;
+    font-size: 20px;
+    background: #bfb4d1;
+  }
+  div#buttonClose:hover {
+    background-color: #61458c;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+}
+
+@media (min-width: 376px) and (max-width: 768px) {
+  .weather {
+    font-size: 1em;
+    max-height: 6vh;
+  }
+
+  .weather-item {
+    padding-right: 15px;
+    padding-left: 15px;
+    white-space: nowrap;
+    animation-duration: 15s;
+    animation-name: animation_weather_max_width_768px;
+  }
+
+  .imageIcon {
+    height: 80px;
+    width: 80px;
+  }
+
+  div#buttonClose {
+    left: -20px;
+    font-size: 80px;
+    padding-right: 50px;
+    padding-left: 10px;
+    height: 0px;
+    white-space: nowrap;
+    width: 5vw;
+    float: left;
+  }
+}
+
+@media (max-width: 375px) {
+  .weather {
+    font-size: 0.8em;
+    height: 7vh;
+    align-items: flex-start;
+    overflow-x: visible;
+  }
+
+  .weather-item {
+    padding-right: 10px;
+    padding-left: 10px;
+    white-space: nowrap;
+    animation-duration: 15s;
+    animation-name: animation_weather_max_width_768px;
+  }
+
+  div#divWeatherMain {
+    padding-right: 0px;
+    padding-top: 2px;
+  }
+
+  .imageIcon {
+    height: 70px;
+    width: 70px;
+  }
+
+  div#buttonClose {
+    left: -20px;
+    font-size: 80px;
+    padding-right: 50px;
+    padding-left: 10px;
+    height: 0px;
+    white-space: nowrap;
+    width: 5vw;
+    float: left;
+  }
+}
+
+.weather {
+  display: flex;
+  justify-content: space-around;
+  text-align: start;
+  align-items: center;
+  background: #bfb4d1;
+  color: #262429;
+  font-weight: bold;
+  /*El scroll se mantiene oculto, los div's hijos se mantienen dentro del contenedor weather*/
+  overflow-x: hidden;
+  /*Corregir el icono es demasiado grande*/
+  overflow-y: hidden;
+}
+
+
+.weather-item {
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  text-align: center;
+  /*Cada vez que termina un ciclo, la animación se reinicia al estado inicial
+     y comienza desde el principio. Este es el comportamiento por defecto.*/
+  animation-direction: normal;
+  position: relative;
+}
+
+@keyframes animation_weather_min_width_769px {
+  0% {
+    right: -100%;
+  }
+
+  100% {
+    right: 100%;
+  }
+}
+
+@keyframes animation_weather_max_width_768px {
+  0% {
+    right: -150%;
+  }
+
+  100% {
+    right: 150%;
+  }
+}
