@@ -23,9 +23,9 @@ async function getMyData() {
   const icon = data.weather[0].icon;
 
   const divLocation = document.getElementById("divLocation");
-  const divTempMin = document.getElementById("tempMin");
-  const divTempMax = document.getElementById("tempMax");
-  const divHumidity = document.getElementById("humidity");
+  const divTempMin = document.getElementById("divTempMin");
+  const divTempMax = document.getElementById("divTempMax");
+  const divHumidity = document.getElementById("divHumidity");
   const divWeatherMain = document.getElementById("divWeatherMain");
 
   if (name !== null) divLocation.textContent = name;
@@ -44,8 +44,8 @@ async function getMyData() {
           method: 'GET',
           headers: new Headers(),
           mode: 'cors',
-          cache: 'default',
-          credentials: 'same-origin',
+          cache: 'default',          
+          credentials: 'same-origin'
         }
       );
       const data = await response.blob();
@@ -72,11 +72,14 @@ document.addEventListener("DOMContentLoaded", function (event) {
   debugger;
   const pWeather = document.getElementById("divWeather");
   const buttonClick = document.getElementById("buttonClose");
-  buttonClick.addEventListener("click", removeButton(pWeather));
+  buttonClick.addEventListener('mousedown', (event) => {
+    console.log("event:", event.button);
+    if (event.button === 0) {
+      document.body.removeChild(pWeather);
+    }
+  });
 });
 
-function removeButton(pWeather) {  
-    document.body.removeChild(pWeather);
-}
+
 
 

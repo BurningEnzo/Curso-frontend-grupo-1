@@ -51,9 +51,9 @@
 
   div#divLocation,
   div#divWeatherMain,
-  div#tempMin,
-  div#tempMax,
-  div#humidity {
+  div#divTempMin,
+  div#divTempMax,
+  div#divHumidity {
     flex-basis: max-content;
     padding-right: 20px;
     padding-left: 20px;
@@ -106,9 +106,9 @@
 
   div#divLocation,
   div#divWeatherMain,
-  div#tempMin,
-  div#tempMax,
-  div#humidity {
+  div#divTempMin,
+  div#divTempMax,
+  div#divHumidity {
     padding-right: 15px;
     padding-left: 15px;
     white-space: nowrap;
@@ -161,9 +161,9 @@
 
   div#divLocation,
   div#divWeatherMain,
-  div#tempMin,
-  div#tempMax,
-  div#humidity {    
+  div#divTempMin,
+  div#divTempMax,
+  div#divHumidity {    
     padding-right: 10px;
     padding-left: 10px;  
     white-space: nowrap;
@@ -240,28 +240,22 @@ a.nav-link {
   overflow-x: hidden;
   /*Corregir el icono es demasiado grande*/
   overflow-y: hidden;
-  /*object-fit: contain;*/
 }
 
 /* Init weatherMap*/
 div#divLocation,
 div#divWeatherMain,
-div#tempMin,
-div#tempMax,
-div#humidity {
+div#divTempMin,
+div#divTempMax,
+div#divHumidity {
   animation-iteration-count: infinite;
   animation-timing-function: linear;
   text-align: center;
-
   /*Cada vez que termina un ciclo, la animación se reinicia al estado inicial
    y comienza desde el principio. Este es el comportamiento por defecto.*/
   animation-direction: normal;
   position: relative;
 }
-
-/*div#divWeatherMain{
-  width: 20%;
-}*/
 
 @keyframes animation_weather_min_width_769px {
   0% {
