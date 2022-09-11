@@ -1,9 +1,8 @@
-import { getCountries } from "./country.js";
+import { countries } from "./country.js";
 
-const listCountries = getCountries;
+debugger;
 
 async function getMyData() {
-
   const URL_WEATHERMAP = "https://api.openweathermap.org/data/2.5/weather";
   const LAT = "41.3879";
   const LON = "2.16992";
@@ -36,20 +35,22 @@ async function getMyData() {
   if (tempMin !== null) divTempMin.textContent = `Temp. min ${tempMin}ºC`;
   if (tempMax !== null) divTempMax.textContent = `Temp. max ${tempMax}ºC`;
   if (humidity !== null) divHumidity.textContent = `Humitat ${humidity}%`;
-  if (weatherMain !== null) divWeatherMain.textContent = weatherDescription[0].toUpperCase() + weatherDescription.substring(1);
+  if (weatherMain !== null)
+    divWeatherMain.textContent =
+      weatherDescription[0].toUpperCase() + weatherDescription.substring(1);
 
-  const imageIcon = async icon => {
+  const imageIcon = async (icon) => {
     const URL_WEATHERMAP_ICON = "https://openweathermap.org/img/wn/";
     const CODE_EXT_ICON = "@2x.png";
     try {
       const response = await fetch(
         `${URL_WEATHERMAP_ICON}${icon}${CODE_EXT_ICON}`,
         {
-          method: 'GET',
+          method: "GET",
           headers: new Headers(),
-          mode: 'cors',
-          cache: 'default',
-          credentials: 'same-origin'
+          mode: "cors",
+          cache: "default",
+          credentials: "same-origin",
         }
       );
       const data = await response.blob();
@@ -70,25 +71,19 @@ async function getMyData() {
     divWeatherMain.appendChild(image);
   }
 }
-debugger;
+
 document.addEventListener("DOMContentLoaded", function (event) {
   getMyData();
-  listCountries;
-
-  console.log("list", listCountries);
-  debugger;
   const pWeather = document.getElementById("divWeather");
   const buttonClick = document.getElementById("buttonClose");
-  buttonClick.addEventListener('mousedown', (event) => {
+  buttonClick.addEventListener("mousedown", (event) => {
     console.log("event:", event.button);
     if (event.button === 0) {
       document.body.removeChild(pWeather);
     }
   });
 });
-
-
-
-
-
+const listCountries = await countries();
+const result= listCountries.data.countries;
+console.log("result",result);
 
