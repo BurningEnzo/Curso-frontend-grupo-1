@@ -1,6 +1,6 @@
 import { countries } from "./country.js";
 
-debugger;
+
 
 async function getMyData() {
   const URL_WEATHERMAP = "https://api.openweathermap.org/data/2.5/weather";
@@ -83,7 +83,40 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
   });
 });
+
+debugger;
 const listCountries = await countries();
-const result= listCountries.data.countries;
-console.log("result",result);
+const result = [...listCountries.data.countries];
+console.log("result", result);
+
+result.sort(() => Math.random() - 0.5);
+console.log("Result Shuffle", result);
+
+const randomCountry = result.splice(0, 1);
+let playCountries = new Array();
+let index;
+//playCountries = randomCountry;
+
+console.log("randomConuntry", randomCountry);
+console.log("result", result);
+
+const isNotContinentName = (element) =>
+  element.continent.name !== randomCountry[0].continent.name;
+
+console.log(randomCountry=>randomCountry[0].languaje.name);
+const isNotLanguagesName = (element)=> element.languages.name!==(randomCountry=>randomCountry[0].languaje.name);
+
+index = result.findIndex(isNotContinentName);
+debugger;
+playCountries = [...randomCountry,result[index]];
+result.splice(index, 1);
+
+console.log("playconuntriescomparelenguage",playCountries);
+
+index=result.findIndex(isNotLanguagesName);
+playCountries = [...playCountries,result[index]];
+result.splice(index, 1);
+
+
+playCountries = [...playCountries, result[0],result[1]];
 
