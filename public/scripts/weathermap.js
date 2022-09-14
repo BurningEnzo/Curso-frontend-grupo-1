@@ -1,7 +1,5 @@
 import { countries } from "./country.js";
 
-
-
 async function getMyData() {
   const URL_WEATHERMAP = "https://api.openweathermap.org/data/2.5/weather";
   const LAT = "41.3879";
@@ -87,36 +85,69 @@ document.addEventListener("DOMContentLoaded", function (event) {
 debugger;
 const listCountries = await countries();
 const result = [...listCountries.data.countries];
-console.log("result", result);
 
 result.sort(() => Math.random() - 0.5);
-console.log("Result Shuffle", result);
 
+//País sobre el que se realizan las preguntas del Juego
 const randomCountry = result.splice(0, 1);
+//Array que contiene los países que entraran en el juego
 let playCountries = new Array();
 let index;
-//playCountries = randomCountry;
 
-console.log("randomConuntry", randomCountry);
-console.log("result", result);
+//Filtro para que el país no esté en el mismo continente
+//const isNotContinentName = (element) =>
+//element.continent.name !== randomCountry[0].continent.name;
 
-const isNotContinentName = (element) =>
-  element.continent.name !== randomCountry[0].continent.name;
+//Obtenemos el ínidice de un país que no está en el mismo continente
+//index = result.findIndex(isNotContinentName);
+//El array contiene el país sobre el que se le realizan las preguntas, y un país que el continente no coincide con
+playCountries = [randomCountry[0]]; //, result[index]];
 
-console.log(randomCountry=>randomCountry[0].languaje.name);
-const isNotLanguagesName = (element)=> element.languages.name!==(randomCountry=>randomCountry[0].languaje.name);
+let mapCountries = new Map();
+mapCountries.set(0, randomCountry[0]);
+//mapCountries.set(2, result[index]);
 
-index = result.findIndex(isNotContinentName);
+result.splice(index, 1);
+
+let isNotLanguagesNameContinent = false;
+let i = 0;
+let j = 0;
+let language;
+
 debugger;
-playCountries = [...randomCountry,result[index]];
-result.splice(index, 1);
+//Buscamos un país que no utilice algunos de los idiomas
+while (isNotLanguagesNameContinent === false) {
+  language = result[i].languages.filter((p) =>
+    randomCountry[0].languages.some((q) => q.name === p.name)
+  );
+  console.log("language", language);
+  if (
+    language[0] === undefined &&
+    randomCountry[0].continent.name !== result[i].continent.name
+  ) {
+    playCountries = [...playCountries, result[i]];
+    mapCountries.set(j+1, result[i]);
+    result.splice(i, 1);
+    j++;    
+    if (j === 3) isNotLanguagesNameContinent = true;
+  } else {
+    i++;
+  }
+}
 
-console.log("playconuntriescomparelenguage",playCountries);
+console.log("playconuntriescomparelenguage", playCountries);
 
-index=result.findIndex(isNotLanguagesName);
-playCountries = [...playCountries,result[index]];
-result.splice(index, 1);
+//El array contiene el pais, el continente, el idioma y la bandera
+debugger;
+//playCountries = [...playCountries, result[0]];
+//mapCountries.set(4, result[0]);
 
+let sortAnswer = [0,1,2,3];
+sortAnswer = sortAnswer.sort(() => Math.random() - 0.5);
+//sortAnswer[0];
+const nameCountry= randomCountry[0].name;
 
-playCountries = [...playCountries, result[0],result[1]];
-
+const divAnswer1 = mapCountries.get(sortAnswer[0]).capital;
+const divAnswer2 = mapCountries.get(sortAnswer[1]).languages[0].name;
+const divAnswer3 = mapCountries.get(sortAnswer[2]).emoji;
+const divAnswer4 = mapCountries.get(sortAnswer[3]).phone;
