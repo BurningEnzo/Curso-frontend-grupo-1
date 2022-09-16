@@ -9,7 +9,14 @@ async function getMyData() {
   const APPID = "98c5a609f513ca79bdbd1c97df82d17e";
 
   const response = await fetch(
-    `${URL_WEATHERMAP}?lat=${LAT}&lon=${LON}&units=${UNITS}&appid=${APPID}&lang=${LANG}`
+    `${URL_WEATHERMAP}?lat=${LAT}&lon=${LON}&units=${UNITS}&appid=${APPID}&lang=${LANG}`,
+    {
+      method: "GET",
+      headers: new Headers(),
+      mode: "cors",
+      cache: "default",
+      credentials: "same-origin",
+    }
   );
 
   const data = await response.json();
@@ -82,30 +89,24 @@ document.addEventListener("DOMContentLoaded", function (event) {
   });
 });
 
-debugger;
 const listCountries = await countries();
 const result = [...listCountries.data.countries];
 
+//Función Ramdom que cambia el orden de los países para no repetir en cada jugada
 result.sort(() => Math.random() - 0.5);
 
 //País sobre el que se realizan las preguntas del Juego
 const randomCountry = result.splice(0, 1);
-//Array que contiene los países que entraran en el juego
+//Incializamos el array que contendrá los países que entraran en el juego
 let playCountries = new Array();
 let index;
 
-//Filtro para que el país no esté en el mismo continente
-//const isNotContinentName = (element) =>
-//element.continent.name !== randomCountry[0].continent.name;
+//El array contiene el país sobre el que se le realizan las preguntas
+playCountries = [randomCountry[0]]; 
 
-//Obtenemos el ínidice de un país que no está en el mismo continente
-//index = result.findIndex(isNotContinentName);
-//El array contiene el país sobre el que se le realizan las preguntas, y un país que el continente no coincide con
-playCountries = [randomCountry[0]]; //, result[index]];
-
+//Map que se utilizará para cambiar cada vez el orden de las repuestas
 let mapCountries = new Map();
 mapCountries.set(0, randomCountry[0]);
-//mapCountries.set(2, result[index]);
 
 result.splice(index, 1);
 
@@ -114,8 +115,7 @@ let i = 0;
 let j = 0;
 let language;
 
-debugger;
-//Buscamos un país que no utilice algunos de los idiomas
+//Buscamos 3 países que no utilicen los mismos idiomas (o alguno de los idiomas) ni el mismo continente
 while (isNotLanguagesNameContinent === false) {
   language = result[i].languages.filter((p) =>
     randomCountry[0].languages.some((q) => q.name === p.name)
@@ -137,16 +137,14 @@ while (isNotLanguagesNameContinent === false) {
 
 console.log("playconuntriescomparelenguage", playCountries);
 
-//El array contiene el pais, el continente, el idioma y la bandera
 debugger;
-//playCountries = [...playCountries, result[0]];
-//mapCountries.set(4, result[0]);
 
 let sortAnswer = [0,1,2,3];
+//Cambiamos el orden de las respuestas
 sortAnswer = sortAnswer.sort(() => Math.random() - 0.5);
-//sortAnswer[0];
 const nameCountry= randomCountry[0].name;
 
+//Añadimos el texto de cada posible respuesta
 const divAnswer1 = mapCountries.get(sortAnswer[0]).capital;
 const divAnswer2 = mapCountries.get(sortAnswer[1]).languages[0].name;
 const divAnswer3 = mapCountries.get(sortAnswer[2]).emoji;
