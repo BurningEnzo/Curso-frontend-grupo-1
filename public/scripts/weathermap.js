@@ -113,43 +113,45 @@ console.log("Países para el resto de preguntas: ", playCountries);
 let index;
 
 //El array contiene el país sobre el que se le realizan las preguntas
-playCountries[0] = selectedCountry;
+playCountries[0] = { corectAnswer: 1, value: selectedCountry };
 console.log("Tamaño array con un país: ", playCountries.length);
 console.log("Países en juego: ", playCountries);
 
-function findCommonElements3(arr1, arr2) {
+/*function findCommonElements3(arr1, arr2) {
     return arr1.some(item => arr2.includes(item))
-}
+}*/
+//while (playCountries.length < 4) {
+let language;
+debugger;
+for (let i = 0; playCountries.length < 4; i++) {
+  language = result[i].languages.filter((p) =>
+    selectedCountry.languages.some((q) => q.name === p.name)
+  );
 
-while (playCountries.length < 4) {
-
-  for (let i = 0; i < result.length; i++) {
-    if (findCommonElements3(selectedCountry.lenguages, result[i].languages)) {
-      i++;
-    } else {
-
-      playCountries.push(result[i]);
-      console.log("Tamaño array con un país: ", playCountries.length);
-      console.log("Países en juego: ", playCountries);
-
-    }
+  if (language[0] === undefined) {
+    playCountries.push({ corectAnswer: 0, value: result[i] });
   }
+  //playCountries.push(result[i]);
 }
-
+console.log("Tamaño array con un país: ", playCountries.length);
+console.log("Países en juego: ", playCountries);
+debugger;
+//playCountries=playCountries.sort(() => Math.random()-0.5);
+//}
+//}
 
 //Map que se utilizará para cambiar cada vez el orden de las repuestas
-let mapCountries = new Map();
-mapCountries.set(0, selectedCountry);
+//let mapCountries = new Map();
+//mapCountries.set(0, selectedCountry);
 
-result.splice(index, 1);
+//result.splice(index, 1);
 
-let isNotLanguagesNameContinent = false;
+/*let isNotLanguagesNameContinent = false;
 let i = 0;
-let j = 0;
-let language;
+let j = 0;*/
 
 //Buscamos 3 países que no utilicen los mismos idiomas (o alguno de los idiomas) ni el mismo continente
-while (isNotLanguagesNameContinent === false) {
+/*while (isNotLanguagesNameContinent === false) {
   language = result[i].languages.filter((p) =>
     selectedCountry.languages.some((q) => q.name === p.name)
   );
@@ -166,20 +168,21 @@ while (isNotLanguagesNameContinent === false) {
   } else {
     i++;
   }
-}
+}*/
 
 console.log("playconuntriescomparelenguage", playCountries);
 
 let sortAnswer = [0, 1, 2, 3];
 //Cambiamos el orden de las respuestas
 sortAnswer = sortAnswer.sort(() => Math.random() - 0.5);
-const nameCountry = selectedCountry.name;
+//const nameCountry = selectedCountry.name;
 
 //Añadimos el texto de cada posible respuesta
-const divAnswer1 = mapCountries.get(sortAnswer[0]).capital;
-const divAnswer2 = mapCountries.get(sortAnswer[1]).languages.name;
-const divAnswer3 = mapCountries.get(sortAnswer[2]).emoji;
-const divAnswer4 = mapCountries.get(sortAnswer[3]).continent;
+debugger;
+const divAnswer1 = playCountries[sortAnswer[0]];
+const divAnswer2 = playCountries[sortAnswer[1]];
+const divAnswer3 = playCountries[sortAnswer[2]];
+const divAnswer4 = playCountries[sortAnswer[3]];
 
 if (window.location.href.indexOf("#easteregg") > -1) {
   // Get the modal
