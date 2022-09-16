@@ -1,4 +1,4 @@
-import { countries } from "./country.js";
+import { country } from "./country.js";
 
 async function getMyData() {
   const URL_WEATHERMAP = "https://api.openweathermap.org/data/2.5/weather";
@@ -89,24 +89,57 @@ document.addEventListener("DOMContentLoaded", function (event) {
   });
 });
 
-const listCountries = await countries();
+/////////////////////////////////////////////JUEGO/////////////////////////////////////////////
+
+const listCountries = await country();
+
+console.log("Países cargados: ", listCountries);
 const result = [...listCountries.data.countries];
 
 //Función Ramdom que cambia el orden de los países para no repetir en cada jugada
 result.sort(() => Math.random() - 0.5);
+console.log("Array de países desordenado: ", result);
 
 //País sobre el que se realizan las preguntas del Juego
-const randomCountry = result.splice(0, 1);
+//const selectedCountry = result.splice(0, 1);
+const selectedCountry = result.shift();
+console.log("País elegido para el juego: ", selectedCountry);
+
 //Incializamos el array que contendrá los países que entraran en el juego
 let playCountries = new Array();
+console.log("Tamaño array: ", playCountries.length);
+console.log("Países para el resto de preguntas: ", playCountries);
+
 let index;
 
 //El array contiene el país sobre el que se le realizan las preguntas
-playCountries = [randomCountry[0]]; 
+playCountries[0] = selectedCountry;
+console.log("Tamaño array con un país: ", playCountries.length);
+console.log("Países en juego: ", playCountries);
+
+function findCommonElements3(arr1, arr2) {
+    return arr1.some(item => arr2.includes(item))
+}
+
+while (playCountries.length < 4) {
+
+  for (let i = 0; i < result.length; i++) {
+    if (findCommonElements3(selectedCountry.lenguages, result[i].languages)) {
+      i++;
+    } else {
+
+      playCountries.push(result[i]);
+      console.log("Tamaño array con un país: ", playCountries.length);
+      console.log("Países en juego: ", playCountries);
+
+    }
+  }
+}
+
 
 //Map que se utilizará para cambiar cada vez el orden de las repuestas
 let mapCountries = new Map();
-mapCountries.set(0, randomCountry[0]);
+mapCountries.set(0, selectedCountry);
 
 result.splice(index, 1);
 
@@ -118,17 +151,17 @@ let language;
 //Buscamos 3 países que no utilicen los mismos idiomas (o alguno de los idiomas) ni el mismo continente
 while (isNotLanguagesNameContinent === false) {
   language = result[i].languages.filter((p) =>
-    randomCountry[0].languages.some((q) => q.name === p.name)
+    selectedCountry.languages.some((q) => q.name === p.name)
   );
   console.log("language", language);
   if (
     language[0] === undefined &&
-    randomCountry[0].continent.name !== result[i].continent.name
+    selectedCountry.continent.name !== result[i].continent.name
   ) {
-    playCountries = [...playCountries, result[i]];
-    mapCountries.set(j+1, result[i]);
+    playCountries[i] = result[i];
+    mapCountries.set(j + 1, result[i]);
     result.splice(i, 1);
-    j++;    
+    j++;
     if (j === 3) isNotLanguagesNameContinent = true;
   } else {
     i++;
@@ -137,15 +170,36 @@ while (isNotLanguagesNameContinent === false) {
 
 console.log("playconuntriescomparelenguage", playCountries);
 
-debugger;
-
-let sortAnswer = [0,1,2,3];
+let sortAnswer = [0, 1, 2, 3];
 //Cambiamos el orden de las respuestas
 sortAnswer = sortAnswer.sort(() => Math.random() - 0.5);
-const nameCountry= randomCountry[0].name;
+const nameCountry = selectedCountry.name;
 
 //Añadimos el texto de cada posible respuesta
 const divAnswer1 = mapCountries.get(sortAnswer[0]).capital;
-const divAnswer2 = mapCountries.get(sortAnswer[1]).languages[0].name;
+const divAnswer2 = mapCountries.get(sortAnswer[1]).languages.name;
 const divAnswer3 = mapCountries.get(sortAnswer[2]).emoji;
-const divAnswer4 = mapCountries.get(sortAnswer[3]).phone;
+const divAnswer4 = mapCountries.get(sortAnswer[3]).continent;
+
+if (window.location.href.indexOf("#easteregg") > -1) {
+  // Get the modal
+  var modal = document.getElementById("myModal");
+
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+
+  // Show the modal
+  modal.style.display = "block";
+
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function () {
+    modal.style.display = "none";
+  };
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  };
+}

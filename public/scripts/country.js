@@ -1,4 +1,4 @@
-export const countries = async function getCountries() {
+export const country = async function getCountries() {
   let queryC = `query{
         countries{
             name
