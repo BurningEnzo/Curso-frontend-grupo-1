@@ -20,6 +20,4 @@ class KeynavController extends Controller {
     }
 }
 
-
 export { KeynavController };
-

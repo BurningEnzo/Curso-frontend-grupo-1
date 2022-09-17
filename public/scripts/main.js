@@ -11,13 +11,4 @@ app.register("kn", KeynavController);
         [...menuLinks].forEach(element => indexOf(element));
     })
 }
-
-
-
 export { menuLinks };*/
-
-
-
-
-
-
