@@ -2,22 +2,12 @@ export const country = async function getCountries() {
   let queryC = `query{
         countries{
             name
-            code
-            native
-            phone
-            continent{
-              name
-            }
+            emojiU  
             capital
-            currency  
             languages{
             name
             }
-            emoji
-            emojiU  
-            states{
-            name
-                  }
+            phone            
             }           
        }`;
 
