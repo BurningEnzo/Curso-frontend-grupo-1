@@ -1,6 +1,34 @@
 import { country } from "./country.js";
 
+let lat;
+let lon;
+
 async function getMyData() {
+  var options = {
+    enableHighAccuracy: true,
+    timeout: 5000,
+    maximumAge: 0,
+  };
+
+  function success(pos) {
+    var crd = pos.coords;
+
+    console.log("Your current position is:");
+    console.log("Latitude : " + crd.latitude);
+    console.log("Longitude: " + crd.longitude);
+    console.log("More or less " + crd.accuracy + " meters.");
+    lat = crd.latitude;
+    lon = crd.longitude;
+  }
+
+  function error(err) {
+    lat = "41.3879";
+    lot = "2.16992";
+    console.warn("ERROR(" + err.code + "): " + err.message);
+  }
+
+  navigator.geolocation.getCurrentPosition(success, error, options);
+
   const URL_WEATHERMAP = "https://api.openweathermap.org/data/2.5/weather";
   const LAT = "41.3879";
   const LON = "2.16992";
@@ -101,92 +129,61 @@ result.sort(() => Math.random() - 0.5);
 console.log("Array de países desordenado: ", result);
 
 //País sobre el que se realizan las preguntas del Juego
-//const selectedCountry = result.splice(0, 1);
 const selectedCountry = result.shift();
 console.log("País elegido para el juego: ", selectedCountry);
 
 //Incializamos el array que contendrá los países que entraran en el juego
 let playCountries = new Array();
-console.log("Tamaño array: ", playCountries.length);
-console.log("Países para el resto de preguntas: ", playCountries);
-
-let index;
 
 //El array contiene el país sobre el que se le realizan las preguntas
 playCountries[0] = { corectAnswer: 1, value: selectedCountry };
-console.log("Tamaño array con un país: ", playCountries.length);
-console.log("Países en juego: ", playCountries);
 
-/*function findCommonElements3(arr1, arr2) {
-    return arr1.some(item => arr2.includes(item))
-}*/
-//while (playCountries.length < 4) {
+//Variable para filtrar que el idioma no coincida
 let language;
-debugger;
+
 for (let i = 0; playCountries.length < 4; i++) {
   language = result[i].languages.filter((p) =>
     selectedCountry.languages.some((q) => q.name === p.name)
   );
-
   if (language[0] === undefined) {
     playCountries.push({ corectAnswer: 0, value: result[i] });
   }
-  //playCountries.push(result[i]);
 }
-console.log("Tamaño array con un país: ", playCountries.length);
-console.log("Países en juego: ", playCountries);
-debugger;
-//playCountries=playCountries.sort(() => Math.random()-0.5);
-//}
-//}
-
-//Map que se utilizará para cambiar cada vez el orden de las repuestas
-//let mapCountries = new Map();
-//mapCountries.set(0, selectedCountry);
-
-//result.splice(index, 1);
-
-/*let isNotLanguagesNameContinent = false;
-let i = 0;
-let j = 0;*/
-
-//Buscamos 3 países que no utilicen los mismos idiomas (o alguno de los idiomas) ni el mismo continente
-/*while (isNotLanguagesNameContinent === false) {
-  language = result[i].languages.filter((p) =>
-    selectedCountry.languages.some((q) => q.name === p.name)
-  );
-  console.log("language", language);
-  if (
-    language[0] === undefined &&
-    selectedCountry.continent.name !== result[i].continent.name
-  ) {
-    playCountries[i] = result[i];
-    mapCountries.set(j + 1, result[i]);
-    result.splice(i, 1);
-    j++;
-    if (j === 3) isNotLanguagesNameContinent = true;
-  } else {
-    i++;
-  }
-}*/
-
-console.log("playconuntriescomparelenguage", playCountries);
 
 let sortAnswer = [0, 1, 2, 3];
-//Cambiamos el orden de las respuestas
+//Variable para cambiar el orden de las respuestas
 sortAnswer = sortAnswer.sort(() => Math.random() - 0.5);
-//const nameCountry = selectedCountry.name;
 
-//Añadimos el texto de cada posible respuesta
-debugger;
-const divAnswer1 = playCountries[sortAnswer[0]];
-const divAnswer2 = playCountries[sortAnswer[1]];
-const divAnswer3 = playCountries[sortAnswer[2]];
-const divAnswer4 = playCountries[sortAnswer[3]];
+//País sobre el que se realiza la pregunta
+const nameCountry = selectedCountry.name;
+
+const divAnswer1 = {
+  isCorrect: playCountries[sortAnswer[1]].corectAnswer,
+  answer: playCountries[sortAnswer[1]].value.emoji,
+};
+const divAnswer2 = {
+  isCorrect: playCountries[sortAnswer[0]].corectAnswer,
+  answer: `Capital: ${playCountries[sortAnswer[0]].value.capital}`,
+};
+
+const divAnswer3 = {
+  isCorrect: playCountries[sortAnswer[2]].corectAnswer,
+  answer: `Idioma: ${playCountries[sortAnswer[2]].value.languages[0].name}`,
+};
+const divAnswer4 = {
+  isCorrect: playCountries[sortAnswer[3]].corectAnswer,
+  answer: `Prefijo Teléfono: ${playCountries[sortAnswer[3]].value.phone}`,
+};
+
+const divAnswer = [divAnswer1, divAnswer2, divAnswer3, divAnswer4];
 
 if (window.location.href.indexOf("#easteregg") > -1) {
   // Get the modal
-  var modal = document.getElementById("myModal");
+  const modal = document.getElementById("myModal");
+  const modalContent = document.getElementById("modalContent");
+  const country = document.getElementById("country");
+
+  country.textContent = `Una de las respuestas corresponde al País: ${nameCountry}`;
 
   // Get the <span> element that closes the modal
   var span = document.getElementsByClassName("close")[0];
@@ -198,6 +195,23 @@ if (window.location.href.indexOf("#easteregg") > -1) {
   span.onclick = function () {
     modal.style.display = "none";
   };
+
+  for (let i = 0; i < divAnswer.length; i++) {
+    const divAnswerModal = document.createElement("button");
+    divAnswerModal.type = "button";
+    divAnswerModal.className = "button-answer";
+    divAnswerModal.value = divAnswer[i].isCorrect;
+    divAnswerModal.textContent = divAnswer[i].answer;
+
+    divAnswerModal.addEventListener("click", (event) => {
+      if (divAnswerModal.value === "1") {
+        alert("Has ganado");
+      } else {
+        alert("Has perdido");
+      }
+    });
+    modalContent.appendChild(divAnswerModal);
+  }
 
   // When the user clicks anywhere outside of the modal, close it
   window.onclick = function (event) {

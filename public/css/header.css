@@ -284,8 +284,7 @@ div#divHumidity {
   width: 100%;
   padding: .375rem .75rem;
   font-size: 1rem;
-  font-weight: 400;
-  height: 10px;
+  font-weight: 400; 
   line-height: 1.5;
   color:#fff;
   background-color:#61458c;
@@ -296,4 +295,16 @@ div#divHumidity {
   appearance: none;
   border-radius: .375rem;
   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.button-answer:hover{
+  background-color:#fff;
+  color:#61458c;
+}
+.button-answer:active{
+  background-color:#fff;
+  color:#61458c;
+  transform: scale(0.98);
+  /* Scaling button to 0.98 to its original size */
+  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+  /* Lowering the shadow */
 }
