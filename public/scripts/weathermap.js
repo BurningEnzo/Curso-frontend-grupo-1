@@ -152,7 +152,7 @@ for (let i = 0; playCountries.length < 4; i++) {
 
 let sortAnswer = [0, 1, 2, 3];
 //Variable para cambiar el orden de las respuestas
-sortAnswer = sortAnswer.sort(() => Math.random() - 0.5);
+sortAnswer.sort(() => Math.random() - 0.5);
 
 //País sobre el que se realiza la pregunta
 const nameCountry = selectedCountry.name;
